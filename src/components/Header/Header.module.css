@@ -2,6 +2,42 @@
   grid-area: h;
   background-color: dimgray;
 }
-.header img {
-  width: 20px;
+
+.headerItem {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas: "logo nothing1 search search search nothing2 list";
+  grid-gap: 10px;
+  height: 40px;
+  padding: 9px;
+}
+
+.nothing1 {
+  grid-area: nothing1;
+}
+
+.nothing2 {
+  grid-area: nothing2;
+}
+
+.logo {
+  grid-area: logo;
+  background-color: gold;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.search {
+  grid-area: search;
+  background-color: gold;
+  padding: 10px;
+  text-align: center;
+}
+
+.list {
+  grid-area: list;
+  background-color: gold;
+  padding: 10px;
+  text-align: center;
 }

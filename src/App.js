@@ -5,13 +5,13 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Other from "./components/Other/Other";
 import Footer from "./components/Footer/Footer";
-import Messages from "./components/Messages/Messages";
+import Messages from "./components/Pages/Messages/Messages";
 import { Route, BrowserRouter } from "react-router-dom";
-import Friends from "./components/Friends/Friends";
-import Images from "./components/Images/Images";
-import Music from "./components/Music/Music";
-import News from "./components/News/News";
-import Videos from "./components/Videos/Videos";
+import Friends from "./components/Pages/Friends/Friends";
+import Images from "./components/Pages/Images/Images";
+import Music from "./components/Pages/Music/Music";
+import News from "./components/Pages/News/News";
+import Videos from "./components/Pages/Videos/Videos";
 
 const App = () => {
   return (
