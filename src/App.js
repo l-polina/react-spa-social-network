@@ -13,20 +13,31 @@ import Music from "./components/Pages/Music/Music";
 import News from "./components/Pages/News/News";
 import Videos from "./components/Pages/Videos/Videos";
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/profile" component={Profile} />
-          <Route path="/news" component={News} />
-          <Route path="/messages" component={Messages} />
-          <Route path="/friends" component={Friends} />
-          <Route path="/images" component={Images} />
-          <Route path="/music" component={Music} />
-          <Route path="/videos" component={Videos} />
+          <Route
+            path="/profile"
+            render={() => <Profile postsData={props.postsData} />}
+          />
+          <Route path="/news" render={() => <News />} />
+          <Route
+            path="/messages"
+            render={() => (
+              <Messages
+                dialogsData={props.dialogsData}
+                messagesData={props.messagesData}
+              />
+            )}
+          />
+          <Route path="/friends" render={() => <Friends />} />
+          <Route path="/images" render={() => <Images />} />
+          <Route path="/music" render={() => <Music />} />
+          <Route path="/videos" render={() => <Videos />} />
         </div>
         <Other />
         <Footer />
