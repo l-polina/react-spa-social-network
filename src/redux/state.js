@@ -1,3 +1,6 @@
+import profileReducer from "./profile-reducer";
+import messageReducer from "./message-reducer";
+
 let store = {
   _state: {
     profilePage: {
@@ -23,30 +26,25 @@ let store = {
         { id: 3, messages: "Message 3" },
         { id: 4, messages: "Message 4" },
       ],
+      newMessageBody: "",
     },
-  },
-  getState() {
-    return this._state;
   },
   _callSubscriber() {
     console.log("State changed");
   },
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0,
-    };
-    this._state.profilePage.postsData.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._callSubscriber(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber(this._state);
+
+  getState() {
+    return this._state;
   },
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+
+  dispatch(action) {
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = messageReducer(this._state.messagesPage, action);
+
+    this._callSubscriber(this._state);
   },
 };
 

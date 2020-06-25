@@ -24,15 +24,14 @@ const App = (props) => {
           render={() => (
             <Profile
               profilePage={props.state.profilePage}
-              addPost={props.addPost}
-              updateNewPostText={props.updateNewPostText}
+              dispatch={props.dispatch}
             />
           )}
         />
         <Route path="/news" render={() => <News />} />
         <Route
           path="/messages"
-          render={() => <Messages state={props.state.messagesPage} />}
+          render={() => <Messages store={props.store} />}
         />
         <Route path="/friends" render={() => <Friends />} />
         <Route path="/images" render={() => <Images />} />
