@@ -12,6 +12,7 @@ import Images from "./components/Pages/Images/Images";
 import Music from "./components/Pages/Music/Music";
 import News from "./components/Pages/News/News";
 import Videos from "./components/Pages/Videos/Videos";
+import MessagesContainer from "./components/Pages/Messages/MessagesContainer";
 
 const App = (props) => {
   return (
@@ -19,19 +20,11 @@ const App = (props) => {
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
-        <Route
-          path="/profile"
-          render={() => (
-            <Profile
-              profilePage={props.state.profilePage}
-              dispatch={props.dispatch}
-            />
-          )}
-        />
+        <Route path="/profile" render={() => <Profile store={props.store} />} />
         <Route path="/news" render={() => <News />} />
         <Route
           path="/messages"
-          render={() => <Messages store={props.store} />}
+          render={() => <MessagesContainer store={props.store} />}
         />
         <Route path="/friends" render={() => <Friends />} />
         <Route path="/images" render={() => <Images />} />
